@@ -4,8 +4,11 @@ plugins {
     id("kotlin-android-extensions")
 }
 
+val frameworkVersion = "1.0.0"
+var frameworkName = "ExampleProject"
+
 group = "me.wouter"
-version = "1.0-SNAPSHOT"
+version = frameworkVersion
 
 repositories {
     google()
@@ -14,8 +17,6 @@ repositories {
 }
 
 kotlin {
-    val frameworkName = "ExampleProject"
-
     android()
     iosArm64 { binaries.framework(frameworkName) }
     iosX64 { binaries.framework(frameworkName) }
@@ -55,6 +56,7 @@ kotlin {
 
     tasks {
         val iosFrameworkName = frameworkName
+
         register("universalFrameworkDebug", org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask::class) {
             baseName = iosFrameworkName
             from(

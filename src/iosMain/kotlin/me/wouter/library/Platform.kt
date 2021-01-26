@@ -1,6 +1,5 @@
 package me.wouter.library
 
-
 import platform.UIKit.UIDevice
 
 actual class Platform actual constructor() {
